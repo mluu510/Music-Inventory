@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Music</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<% if !current_user.nil? %>
+		<ul>
+			<li>Logged in as: <%= current_user.email %></li>
+			<li><%= button_to "Log Out", session_url(current_user), :method => :delete %></li>
+		</ul>
+	<% end %>
+
+	<% if flash.now[:errors] %>
+		<% flash.now[:errors].each do |error| %>
+			<%= error %><br>
+		<% end %>
+	<% end %>
+
+	<%= yield %>
+
+</body>
+</html>
