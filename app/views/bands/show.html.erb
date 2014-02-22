@@ -5,3 +5,9 @@
 		<li><%= link_to album.title, album_url(album) %></li>
 	<% end %>
 </ul>
+
+<%= link_to "Add an album", new_band_album_url(@band) %>
+<br>
+<%= button_to "Delete this band", band_url(@band), :method => :delete %>
+<br>
+<%= link_to "Back", bands_url %>

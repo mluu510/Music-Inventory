@@ -25,6 +25,16 @@ class BandsController < ApplicationController
     render :show
   end
 
+  def destroy
+    @band = Band.find(params[:id])
+    if @band.destroy
+      redirect_to bands_url
+    else
+      flash.now[:errors] = @band.errors.full_messages
+      redirect_to band_url(@band)
+    end
+  end
+
   def band_params
     params.require(:band).permit(:name)
   end

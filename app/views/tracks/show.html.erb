@@ -1,6 +1,10 @@
 <h1>Track Title: <%= @track.title %></h1>
-<h2>From album: ALBUM_TITLE, from band: BAND_TITLE</h2>
+<h2>From album: <%= @album.title %>, by: <%= @band.name %></h2>
 
 <h3>Track Type: <%= @track.track_type %></h3>
 <h3>Sony Lyric:</h3>
 <p><%= @track.lyrics %></p>
+
+<%= button_to "Delete this track", track_url(@track), :method => :delete %>
+<br>
+<%= link_to "Back to album", album_url(@album) %>

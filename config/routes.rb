@@ -5,11 +5,11 @@ Music::Application.routes.draw do
 
   resources :bands do
     resources :albums, :only => [:new, :create, :index] do
-      resources :track, :only => [:new, :create, :index]
+      resources :tracks, :only => [:new, :create, :index]
     end
   end
 
-  resources :album, :only => [:show]
-  resources :track, :only => [:show]
+  resources :albums, :only => [:show, :destroy]
+  resources :tracks, :only => [:show, :destroy]
 
 end
